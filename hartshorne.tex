@@ -1,4 +1,4 @@
-\documentclass{../mathnotes}
+\documentclass{mathnotes}
 
 \usepackage{tikz-cd}
 \usepackage{todonotes}
@@ -244,5 +244,18 @@ For those more versed in category theory, there is a simpler but more indirect p
         on $X$. Just as in part (d), we have the setwise equality $\Hom(X,\G_m)=H$, which extends
         to a group isomorphism, as the multiplicative structure is preserved.
 \end{enumerate}
+
+
+\subsection*{Problem I.4.1}
+We define a function $h$ piecewise on $U \cup V$, by the rules $h(x) = f(x)$ for $x \in U$ and
+ $h(x) = g(x)$ for $x \in V$. This is well-defined, since $f$ and $g$ agree on $U \cap V$. Regularity 
+is defined pointwise, and $h$ is regular at all $x\in U$ because $f$ is, and similarly for $x \in V$. 
+Therefore $h$ is regular on $U \cup V$.
+
+If $f:X \to \A^1$ a rational map, then there are opens $U_{\alpha} \in X$ such that 
+$f|_{U_{\alpha}} \to \A^1$ is a morphism. But morphisms to $\A^1$ are just regular functions. 
+Therefore we use the first part of this problem repeatedly to define a regular function on 
+$\bigcup_{\alpha} U_{\alpha}$. This is the largest open on which $f$ is a morphism, because 
+it contains each other open as a subset.
 
 \end{document}
