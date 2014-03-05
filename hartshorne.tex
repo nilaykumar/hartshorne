@@ -3,7 +3,7 @@
 \usepackage{tikz-cd}
 \usepackage{todonotes}
 
-\title{Hartshorne Solutions}
+\title{Selected Solutions to Hartshorne's \textit{Algebraic Geometry}\footnote{Written for a reading course with Professor A.~J. de Jong at Columbia during the spring semester of 2014.}}
 \author{Matei Ionita and Nilay Kumar}
 \date{Last updated: \today}
 
@@ -129,7 +129,7 @@ This curve is the vanishing in $Q$ of the homogenous degree 3 polynomial $z^3 - 
         map $\iota:X\to X\times Y$; if $\iota$ is continuous then $X_i$ must be closed, as
         $\iota^{-1}(Z_i)=X_i$. But the inclusion is obviously continuous, as any closed set
         in $X\times Y$ is defined by the vanishing of polynomials $f_\alpha(x_1,\ldots,x_n,y_1,\ldots, y_m)$,
-        whose pullback to $X$ is $f_\alpha(x_1,\ldots,x_n,0,\ldots,0)$, which is by definition
+        whose pullback to $X$ is $f_\alpha(x_1,\ldots,x_n,0,\ldots,0)$\todo{fix}, which is by definition
         a closed set of $X$. But if $X_i$ are closed and cover $X$, either $X_1=X$ or $X_2=X$
         and thus $Z_1=X\times Y$ or $Z_2=X\times Y$, i.e. $X\times Y$ is irreducible.
     \item Consider the homomorphism $\psi:A(X)\otimes_kA(Y)\to A(X\times Y)$ given by taking $(f\otimes g)(x,y)$
@@ -146,7 +146,7 @@ Since $\{g_j(y)\}$ form a basis for $A[Y]$, the LHS is zero only if every coeffi
 
 For those more versed in category theory, there is a simpler but more indirect proof. The functor that associates to varieties their coordinate rings is contravariant, and therefore takes products to coproducts. But the coproduct in the category of rings is $\otimes$, which proves the statement.
     \item Let $\pi_X, \pi_Y$ denote the projections on $X$ and $Y$ respectively. Using lemma 3.6, these are morphisms as long as $x_i \circ \pi_X$ and $y_i \circ \pi_Y$ are regular functions on $X \times Y$. But $x_i \circ \pi_X (x, y) = x_i (x, 0) = x_i$, which is a polynomial function, thus regular. This works analogously for $\pi_Y$. Then we just need to check the universal property of products. Assume there exist morphisms $\phi_X :Z \to X$, $\phi_Y : Z \to Y$; then we construct the morphism $\phi_{XY} : Z \to X \times Y$ defined by $\phi_{XY} (z) = (\phi_X (z) , \phi_Y(z))$. We have $\pi_X \circ \phi_{XY} = \phi_X$, $\pi_Y \circ \phi_{XY} = \phi_Y$, and $\phi_{XY}$ is clearly unique with these properties.
-    \item It suffices to show that $\dim A(X)\otimes_k A(Y)=\dim A(X)+\dim A(Y)$. By Noether
+    \item \todo{fix}It suffices to show that $\dim A(X)\otimes_k A(Y)=\dim A(X)+\dim A(Y)$. By Noether
         normalization, $A(X)$ is module-finite over the polynomial ring $k[t_1,\ldots,t_{d_1}]$
         and $A(Y)$ is module-finite over the polynomial ring $k[s_1,\ldots,s_{d_2}]$ with
         $d_1=\dim A(X)$ and $d_2=\dim A(Y)$. In other words, every element of $A(X)$ or $A(Y)$
@@ -219,6 +219,8 @@ For those more versed in category theory, there is a simpler but more indirect p
 
 \end{enumerate}
 
+\subsection*{Problem I.3.20}
+\todo{finish}
 \subsection*{Problem I.3.21}
 \begin{enumerate}[(a)]
     \item It suffices to show that the addition and inversion maps are morphisms of varieties.
@@ -257,5 +259,61 @@ $f|_{U_{\alpha}} \to \A^1$ is a morphism. But morphisms to $\A^1$ are just regul
 Therefore we use the first part of this problem repeatedly to define a regular function on 
 $\bigcup_{\alpha} U_{\alpha}$. This is the largest open on which $f$ is a morphism, because 
 it contains each other open as a subset.
+
+\subsection*{Problem I.4.2}
+Suppose $X$ and $Y$ are two varieties, with $U$ and $V$ open subsets on $X$. Consider morphisms
+$f:U\to Y$ and $g:V\to Y$ with $f=g$ on $U\cap V$. Then we define a map $h:U\cup V\to Y$ by
+$h(x)=f(x)$ for $x\in U$ and $h(x)=g(x)$ for $x\in V$. We check that $h$ is a morphism.
+The image of $h$ is the union of the images of
+$f$ and $g$ and thus $h$ is continuous, as the preimage of an open will be a union of opens by
+continuity of $f$ and $g$. Moreover, note that a regular function $\phi:\tilde Y\to k$ for $\tilde Y\subset Y$
+open is regular at each point $p\in\tilde Y$ and hence $\phi(f(p))$ and $\phi(g(p))$ are regular at
+$f^{-1}(p)$ and $g^{-1}(p)$. Then $h$ also pulls regular functions on $\tilde Y$ back to regular
+functions on $h^{-1}(\tilde Y)$, and $h$ must be a morphism.
+
+Now let $\phi:X\to Y$ be a rational map. Then there are open sets $U_\alpha\subset X$ such that
+$\phi|_{U_\alpha}\to Y$ is a morphism. Applying the results from the previous paragraph to the open
+$\tilde U=\cup_\alpha U_\alpha$, we find that $\phi|_{\tilde U}\to Y$ is a morphism. Clearly
+$\tilde U$ is the largest open set on which $\phi$ is represented by a morphism.
+
+\subsection*{Problem I.4.3}
+\begin{enumerate}[(a)]
+    \item Let $f$ be the rational function on $\Proj^2$ given by $f=x_1/x_0$. Then $f$ is defined
+        (in the sense of the previous problem) on the open set $\Proj_0$ of $\Proj^2$ isomorphic to $\A^2$
+        where $x_0\neq 0$. It is not obvious that $f$ cannot be defined at $[0:0:1]\in\Proj^2$; to see
+        this, note that if there were some open set $U\subset\Proj^2$ containing $[0:0:1]$ on which
+        there existed an $f'=g(x_0,x_1,x_2)/h(x_0,x_1,x_2)$ for some $g,h$ with $h\neq 0$, and $f'=f$
+        on $U\cap\Proj_0$, then $x_0g=x_1h$ (on the overlap), i.e. $x_0|h, x_1|g$,
+        implying that $h$ would vanish at $[0:0:1]$, which is a contradiction. Of course, on the affine
+        open that $f$ is regular, $f:\Proj_0\to k$ is given by $f(x_0,x_1,x_2)=f(1,x_1/x_0,x_2/x_0)=x_1/x_0$,
+        which we can also write as a projection onto the first affine factor $f(a_1,a_2)=a_1$.
+    \item Now consider $f$ as a rational map from $\Proj^2$ to $\Proj^1$, where the field $k$ is
+        embedded as the affine line. Note that $(f,\Proj_0)\sim(f',\Proj^2-[0:0:1])$ as a rational map
+        with $f'(x_0,x_1,x_2)=[x_1,x_0]$, as the two clearly agree on their intersection $\Proj_0$.
+        By an argument exactly as in part (a), it is easy to see that there is no rational map
+        extending $f'$ to all of $\Proj^2$. Hence $f$ is now defined on $\Proj^2-[0:0:1]$, and on
+        this open, is given by $f'$.
+\end{enumerate}
+
+\subsection*{Problem I.4.4}
+
+\begin{enumerate}[(a)]
+    \item Any conic in $\Proj^2$ is isomorphic to $\Proj^1$, by problem I.3.1, and hence
+        rational.
+    \item Consider the cuspidal cubic $Z$ defined by $y^2=x^3$. We claim that $Z$ is birationally
+        equivalent to $\Proj^1$; it is in fact easy to define the explicit birational map.
+        Define the rational map $\phi:Z\to\Proj^1$ on the open set $U=\{(x,y)\in Z\mid x\neq 0\}$ by
+        $\phi(x,y)=y/x$ and the rational map $\psi:\Proj^1\to Z$ on the open $V=\{[t:s]\in\Proj^1\mid s\neq0,t\neq 0\}$
+        by (after scaling) $\psi(t,1)=(t^2,t^3)$. We find that $\phi\circ\psi=\id_{\Proj^1}$ and
+        $\psi\circ\phi=\id_{Z}$, so we are done.
+    \item \todo{finish}
+\end{enumerate}
+
+\subsection*{Problem I.4.5}
+
+\subsection*{Problem I.4.6}
+
+\subsection*{Problem I.4.7}
+
 
 \end{document}
