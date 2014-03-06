@@ -146,17 +146,19 @@ Since $\{g_j(y)\}$ form a basis for $A[Y]$, the LHS is zero only if every coeffi
 
 For those more versed in category theory, there is a simpler but more indirect proof. The functor that associates to varieties their coordinate rings is contravariant, and therefore takes products to coproducts. But the coproduct in the category of rings is $\otimes$, which proves the statement.
     \item Let $\pi_X, \pi_Y$ denote the projections on $X$ and $Y$ respectively. Using lemma 3.6, these are morphisms as long as $x_i \circ \pi_X$ and $y_i \circ \pi_Y$ are regular functions on $X \times Y$. But $x_i \circ \pi_X (x, y) = x_i (x, 0) = x_i$, which is a polynomial function, thus regular. This works analogously for $\pi_Y$. Then we just need to check the universal property of products. Assume there exist morphisms $\phi_X :Z \to X$, $\phi_Y : Z \to Y$; then we construct the morphism $\phi_{XY} : Z \to X \times Y$ defined by $\phi_{XY} (z) = (\phi_X (z) , \phi_Y(z))$. We have $\pi_X \circ \phi_{XY} = \phi_X$, $\pi_Y \circ \phi_{XY} = \phi_Y$, and $\phi_{XY}$ is clearly unique with these properties.
-    \item \todo{fix}It suffices to show that $\dim A(X)\otimes_k A(Y)=\dim A(X)+\dim A(Y)$. By Noether
+    \item It suffices to show that $\dim A(X)\otimes_k A(Y)=\dim A(X)+\dim A(Y)$. By Noether
         normalization, $A(X)$ is module-finite over the polynomial ring $k[t_1,\ldots,t_{d_1}]$
         and $A(Y)$ is module-finite over the polynomial ring $k[s_1,\ldots,s_{d_2}]$ with
         $d_1=\dim A(X)$ and $d_2=\dim A(Y)$. In other words, every element of $A(X)$ or $A(Y)$
         is the solution to some polynomial over the above polynomial rings, respectively.
         Next note that $R=k[t_1,\ldots,t_{d_1}, s_1,\ldots,s_{d_2}]$ must inject into
         $A(X)\otimes_kA(Y)$ via a map $\phi$. 
-        Recall that every element in the tensor product can be written as a sum of elementary tensors
-        $x\otimes y$ with $x\in A(X),y\in A(Y)$. Hence every element in the tensor product must
-        also solve some polynomial over the ring $R$, i.e. $A(X)\otimes_kA(Y)$ is module-finite
-        over $R$ and $\dim A(X)\otimes_kA(Y)=d_1+d_2$, as desired.
+	Now we want to show that $A(X) \otimes_k A(Y)$ is module finite over $R$, which would imply
+	that their dimensions are equal. It suffices to show that every element of $A(X) \otimes_k A(Y)$
+	is integral over $R$. It's easy to see that elementary tensors $a\otimes 1, 1\otimes b$ are integral,
+	as they solve the same polynomials that $a, b$ solve. Integral elements form a subring 
+	of $A(X) \otimes_k A(Y)$, and $a\otimes 1, 1\otimes b$ generate the whole tensor product as a ring.
+        Hence the tensor product is integral over $R$.
 \end{enumerate}
 
 \subsection*{Problem I.3.17}
@@ -267,9 +269,10 @@ $h(x)=f(x)$ for $x\in U$ and $h(x)=g(x)$ for $x\in V$. We check that $h$ is a mo
 The image of $h$ is the union of the images of
 $f$ and $g$ and thus $h$ is continuous, as the preimage of an open will be a union of opens by
 continuity of $f$ and $g$. Moreover, note that a regular function $\phi:\tilde Y\to k$ for $\tilde Y\subset Y$
-open is regular at each point $p\in\tilde Y$ and hence $\phi(f(p))$ and $\phi(g(p))$ are regular at
-$f^{-1}(p)$ and $g^{-1}(p)$. Then $h$ also pulls regular functions on $\tilde Y$ back to regular
-functions on $h^{-1}(\tilde Y)$, and $h$ must be a morphism.
+open is regular at each point of $\tilde Y$. Since $f$ and $g$ are morphisms, $\phi(f(p))$ 
+and $\phi(g(p))$ are regular at every point of $f^{-1}(\tilde Y)$ and $g^{-1}(\tilde Y)$ respectively. But every point in $h^{-1}(\tilde Y)$
+is either in $f^{-1}(\tilde Y)$ or in $g^{-1}(\tilde Y)$, so we see that $h$ also pulls regular functions on 
+$\tilde Y$ back to regular functions on $h^{-1}(\tilde Y)$, and $h$ must be a morphism.
 
 Now let $\phi:X\to Y$ be a rational map. Then there are open sets $U_\alpha\subset X$ such that
 $\phi|_{U_\alpha}\to Y$ is a morphism. Applying the results from the previous paragraph to the open
@@ -289,7 +292,7 @@ $\tilde U$ is the largest open set on which $\phi$ is represented by a morphism.
         which we can also write as a projection onto the first affine factor $f(a_1,a_2)=a_1$.
     \item Now consider $f$ as a rational map from $\Proj^2$ to $\Proj^1$, where the field $k$ is
         embedded as the affine line. Note that $(f,\Proj_0)\sim(f',\Proj^2-[0:0:1])$ as a rational map
-        with $f'(x_0,x_1,x_2)=[x_1,x_0]$, as the two clearly agree on their intersection $\Proj_0$.
+        with $f'(x_0,x_1,x_2)=[x_1:x_0]$, as the two clearly agree on their intersection $\Proj_0$.
         By an argument exactly as in part (a), it is easy to see that there is no rational map
         extending $f'$ to all of $\Proj^2$. Hence $f$ is now defined on $\Proj^2-[0:0:1]$, and on
         this open, is given by $f'$.
@@ -311,15 +314,46 @@ $\tilde U$ is the largest open set on which $\phi$ is represented by a morphism.
 
 \subsection*{Problem I.4.5}
 Note that $\Proj^2$ is birational to $\A^2$, so it suffices to show that $Q$ is birational
-to an affine open in $\Proj^2$. This is done by defining the projection $p:Q\to\Proj^2$
+to the affine open $\A^2$ in $\Proj^2$. This is done by defining the projection $p:Q\to\Proj^2$
 by $p(x,y,z,w)=[x/w:y/w]$ whereever $w\neq 0$, and its inverse $i:\Proj^2\to Q$ by
 $i(x,y,1)=[1:x:y:xy]$, whereever $x\neq0$ and $y\neq 0$. Note, however, that $Q$ is not isomorphic
 to $\Proj^2$, as any two lines in $\Proj^2$ intersect, whereas there exist skew lines on $Q$,
 by problem I.2.15.
 
 \subsection*{Problem I.4.6}
+\begin{enumerate}[(a)]
+\item By explicit computation:
+	\[     \phi^2 [a_0 : a_1 : a_2] = \phi [a_1a_2 : a_0a_2 : a_0 a_1] = 
+	[a_0^2 a_1 a_2 : a_0a_1^2a_2 : a_0a_1a_2^2] = [a_0 : a_1 : a_2]      \]
+	In order to rescale by $a_0a_1a_2$ in the last step, we need all of them to be nonzero. Let $U$ be 
+	the open where no coordinate is 0, then $\phi : U \to U$ is an isomorphism. (It's easy to see that $\phi$
+	surjects onto $U$; we simply rescale by $a_1a_2$.) Then $\phi : \Proj^2 \to \Proj^2$ is birational.
+\item From part (a) $U = V = \{ x_0, x_1, x_2 \neq 0\}$.
+\item $\phi = \phi^{-1}$, so it suffices describe $\phi$. It's well-defined on $\Proj^2 - \{[1:0:0],[0:1:0],[0:0:1]\}$,
+	and it's undefined at the remaining three points. By the previous parts, $\phi : U \to U$ is an isomorphism, so
+	we need only describe $\phi$ on the lines $\{x_i = 0\}$. Clearly $\phi(\{x_0 = 0\}) = [1:0:0]$, and similarly
+	for the other two. We conclude that $\phi$ is an automorphism on $U$, and collapses each of the projective lines
+	$\{x_i = 0\}$ to a point.
+\end{enumerate}
 
 \subsection*{Problem I.4.7}
 
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
