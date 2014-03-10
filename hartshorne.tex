@@ -337,7 +337,37 @@ by problem I.2.15.
 \end{enumerate}
 
 \subsection*{Problem I.4.7}
+Consider the given isomorphism $\phi:\mathcal{O}_{X,P}\to\mathcal{O}_{Y,Q}$. If we choose an affine open
+$P\ni U\subset X$ and any open $Q\ni V\subset Y$, we find that $\mathcal{O}_{X,P}=\mathcal{O}_{U,P}$ and
+$\mathcal{O}_{Y,Q}=\mathcal{O}_{V,Q}$. If we denote by $\mathcal{O}(U)$ and $A(V)$ the rings of regular
+functions on $U$ and $V$, respectively, we can write
+\begin{equation*}
+    \begin{tikzcd}
+        \mathcal{O}_{U,P}\arrow{r}{\sim}&\mathcal{O}_{V,Q}\\
+        \mathcal{O}(U)\arrow[hook]{u}&A(V)\arrow[hook]{u}
+    \end{tikzcd}
+\end{equation*}
 
+
+\subsection*{Problem I.5.1}
+
+\begin{enumerate}[(a)]
+    \item Consider the curve in $\A^2$ given by $x^2=x^4+y^4$. Setting the $x$ and $y$ derivatives to zero
+        yields the points $(0,0)$ and $(\pm 1/\sqrt{2},0)$. It is easy to see that of these, only $(0,0)$ lies
+        on the curve, and hence is the only singular point. The curve corresponds to the tacnode singularity
+        in Figure 4, which is clear by the symmetry.
+    \item Consider $xy=x^6+y^6$. Setting derivatives equal to zero, we find that $y-6x^5=0$ and $x-6y^5=0$.
+        One can check that the only singularity is at $(0,0)$.
+        The equation of the curve remains invariant under $x\mapsto -x,y\mapsto -y$, and hence corresponds to
+        the node singularity in Figure 4.
+    \item Consider $x^3=y^2+x^4+y^4$. Setting derivatives equal to zero, we find $3x^2-4x^3=0$ and $2y+4y^3=0$.
+        This yields $x=0,3/4$ and $y=0,\pm i/\sqrt{2}$, but none of these combinations lie on the curve except
+        for $(0,0)$. This curve corresponds to the cusp singularity in Figure 4, because from the equation, we
+        see that $x^3$ must be positive, i.e. $x$ must be positive.
+    \item Consider $x^2y+xy^2=x^4+y^4$. Setting derivatives equal to zero, we find $2xy+y^2-4x^3=0$ and
+        $x^2+2xy-4y^3=0$. One can check that the only singularity is at $(0,0)$. This curve corresponds to the
+        triple point singularity in Figure 4.
+\end{enumerate}
 
 \end{document}
 
