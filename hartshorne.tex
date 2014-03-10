@@ -346,7 +346,31 @@ functions on $U$ and $V$, respectively, we can write
         \mathcal{O}_{U,P}\arrow{r}{\sim}&\mathcal{O}_{V,Q}\\
         \mathcal{O}(U)\arrow[hook]{u}&A(V)\arrow[hook]{u}
     \end{tikzcd}
-\end{equation*}
+\end{equation*} \todo{finish this}
+
+
+\subsection*{Problem I.4.10}
+We look at the total preimage of $Y$ in the blowing up of $\A^2$; it's given by the solution to
+\begin{align*}
+y^2 &= x^3 \\
+xu &= ty
+\end{align*}
+We analyze the affine opens $t\neq 0$ and $u\neq 0$ of $\Proj^1$ separately. On $t\neq 0$, we set $t=1$ 
+and the second equation becomes $y = ux$. Plugging this in the first equation gives $x^2(x-u^2) =0$. The solution
+$x=0$ gives $(0,0,u,1)$, which is the exceptional curve $E$. The solution $x = u^2$ gives $(u^2, u^3, u, 1)$ which
+gives a parametrization of $\tilde Y$, the blowing up of $Y$. Now we should look at the other affine open, $u\neq 0$.
+However, we are only interested in what happens at $t=0$, because this is the only point that we haven't captured
+in our analysis of the affine open $t\neq 0$, and it's easy to see that $t=0$ doesn't give any more points on $\tilde Y$.
+It follows, then, that there is only one point of intersection of $E$ and $\tilde Y$, specifically $(0,0,0,1)$:
+\[     (u^2, u^3, u, 1) = (0, 0, u, 1) \Rightarrow u=0        \]
+Since $\tilde Y$ is completely contained in one affine piece of $\A^2 \times \Proj^1$, we can just regard it as a subvariety
+of $\A^3$. As such, the isomorphism with $\A^1$ is obvious:
+\[         (u^2, u^3, u, 1) \mapsto u     \]
+The morphism $\phi : \tilde Y \to Y$ is given by
+\[         (u^2, u^3, u, 1) \mapsto  (u^2, u^3)     \]
+Its inverse is not a morphism because the regular function $u$ on some neighborhood of $(0,0,0,1)$ is not regular in any
+neighborhood of $(0,0) \in Y$.
+
 
 \subsection*{Problem I.5.1}
 
