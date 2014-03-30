@@ -439,6 +439,52 @@ neighborhood of $(0,0) \in Y$.
 	However, only $(0,0)$ lies on the surface, therefore the singular locus is $(0,0,z)$. This is the double line in Figure 5.
 \end{enumerate}
 
+\subsection*{Problem I.5.4}
+\begin{enumerate}[(a)]
+    \item Let us first show that $(Y\cdot Z)_P$ is finite. We provide two proofs. First note that $\mathcal{O}_P/(f,g)$
+        is a Noetherian local domain of dimension zero (as it is obtained by successive quotients by nonzerodivisors).
+        By Tag 00KJ of the Stacks Project, we find that $\mathcal{O}_P/(f,g)$ has finite length as an $\mathcal{O}_P/(f,g)$-module,
+        which implies that $\mathcal{O}_P/(f,g)$ has finite length as a $\mathcal{O}_P$-module, which completes the proof.
+
+        For another proof, consider the following. We first state a basic algebra fact that will be useful: the length
+        of $\mathcal{O}_P/(f,g)$ as an $\mathcal{O}_P$-module agrees with the dimension of $\mathcal{O}_P/(f,g)$ as a
+        (finite-dimensional) $k$-vector space\todo{understand}. Furthermore, since $A=k[x,y]/(f,g)$ is the coordinate ring
+        of a finite set of (intersection) points $P_i$, it is isomorphic to the direct sum of the localizations of $A$ at the maximal
+        of every point\footnote{See Fulton's \textit{Algebraic Curves}, section 2.9 proposition 6}.
+        As $A$ is finite-dimensional as a $k$-vector space, the localizations $\mathcal{O}_{P_i}/(f,g)$ must be finite-dimensional,
+        which completes the proof.
+        
+        We now follow Fulton\footnote{See Ibid, section 3.3 theorem 3 property 5} in proving that $(Y\cdot Z)_P\geq \mu_P(Y)\mu_P(Z)$.
+        Consider the following diagram of vector spaces and linear maps, where $\fr m=(x,y), r=\mu_P(Y),$ and $s=\mu_P(Z)$,
+        \begin{equation*}
+            \begin{tikzcd}
+                k[x,y]/\fr m^r\times k[x,y]/\fr m^s \ar{r}{\psi} & k[x,y]/\fr m^{r+s} \ar{r}{\phi} & k[x,y]/(\fr m^{r+s},f,g)\ar{d}{\alpha} \ar{r} & 0\\
+                & \mathcal{O}_P/(f,g) \ar{r}{\pi} & \mathcal{O}_P/(\fr m^{r+s}, f,g) \ar{r} & 0
+            \end{tikzcd}
+        \end{equation*}
+        where $\phi$ and $\pi$ are the natural quotient maps and $\alpha$ is the natural inclusion induced by localization.
+        We define $\psi([a],[b])=[af+bg]$, now noting that the top row becomes an exact sequence. Applying the rank-nullity
+        theorem to $\psi$, we find that
+        \begin{align*}
+            \dim\left( k[x,y]/\fr m^r\times k[x,y]/\fr m^s \right) &= \dim\text{im }\psi + \dim\ker\psi\\
+            &\geq \dim\text{im }\psi =\dim\ker\phi.
+        \end{align*}
+        Applying the rank-nullity theorem to $\phi$, we find that
+        \begin{align*}
+            \dim k[x,y]/\fr m^{r+s}&=\dim\ker\phi+\dim k[x,y]/(\fr m^{r+s},f,g).
+        \end{align*}
+        Combining these inequalities yields
+        \begin{align*}
+            (Y\cdot Z)_P &= \dim \mathcal{O}_P/(f,g)\\
+            &\geq\dim \mathcal{O}_P/(\fr m^{r+s},f,g)\\
+            &=\dim k[x,y]/(\fr m^{r+s},f,g)\\
+            &\geq \dim k[x,y]/\fr m^{r+s}-\dim k[x,y]/\fr m^s-\dim k[x,y]/\fr m^r\\
+            &=\frac{(m+n)(m+n+1)}{2}-\frac{m(m+1)}{2}-\frac{n(n+1)}{2}\\
+            &=mn,
+        \end{align*}
+        as desired.
+\end{enumerate}
+
 \end{document}
 
 
