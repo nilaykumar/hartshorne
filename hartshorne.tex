@@ -435,8 +435,17 @@ neighborhood of $(0,0) \in Y$.
 	\begin{align*}
 	y+3x^2 &= 0  \\
 	x+3y^2 &= 0 \end{align*}
-	The solutions to this are $(0,0), (-1/3,-1/3), (1/3 e^{i2\pi/3}, 1/3 e^{i5\pi/3}), (1/3 e^{i5\pi/3}, 1/3 e^{i2\pi/3})$.
-	However, only $(0,0)$ lies on the surface, therefore the singular locus is $(0,0,z)$. This is the double line in Figure 5.
+    The solutions to this are $(0,0), (-1/3,-1/3), (1/3 e^{i2\pi/3}, 1/3 e^{i5\pi/3}), (1/3 e^{i5\pi/3}, 1/3 e^{i2\pi/3})$.
+    However, only $(0,0)$ lies on the surface, therefore the singular locus is $(0,0,z)$. This is the double line in Figure 5.
+\end{enumerate}
+
+\subsection*{Problem 1.5.3}
+\begin{enumerate}[(a)]
+    \item Using the definition of singular points in terms of the matrix of partial derivatives of $f$, and the fact that $P = (0,0)$,
+        we see that $Df|_P \neq 0 \Leftrightarrow f$ contains linear terms $\Leftrightarrow f_1 \neq 0$.
+    \item For the node, the multiplicity is 2, and the tangent directions are $x=0$ and $y=0$. For the triple point, the multiplicity
+        is 3, and the tangent directions are $x=0, y=0, x+y = 0$. For the cusp, there is only one tangent direction, $y=0$,
+        with multiplicity 2. For the tacnode, there is one tangent direction, $x=0$, with multiplicity 2.
 \end{enumerate}
 
 \subsection*{Problem I.5.4}
@@ -453,7 +462,7 @@ neighborhood of $(0,0) \in Y$.
         of every point\footnote{See Fulton's \textit{Algebraic Curves}, section 2.9 proposition 6}.
         As $A$ is finite-dimensional as a $k$-vector space, the localizations $\mathcal{O}_{P_i}/(f,g)$ must be finite-dimensional,
         which completes the proof.
-        
+
         We now follow Fulton\footnote{See Ibid, section 3.3 theorem 3 property 5} in proving that $(Y\cdot Z)_P\geq \mu_P(Y)\mu_P(Z)$.
         Consider the following diagram of vector spaces and linear maps, where $\fr m=(x,y), r=\mu_P(Y),$ and $s=\mu_P(Z)$,
         \begin{equation*}
