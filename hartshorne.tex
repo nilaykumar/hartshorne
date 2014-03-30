@@ -122,16 +122,22 @@ This curve is the vanishing in $Q$ of the homogenous degree 3 polynomial $z^3 - 
 \begin{enumerate}[(a)]
     \item Let $X\subset\A^n$ and $Y\subset\A^m$ be affine varieties. Consider the product
         $X\times Y\subset\A^{n+m}$ with the induced Zariski topology. Suppose that $X\times Y$
-        is a union of two closed subsets $Z_1\cup Z_2$. Let $X_i=\left\{ x\in X\mid x\times Y\subset Z_i \right\}$
+        is a union of two closed subsets $Z_1\cup Z_2$ with $Z_i=Z(I_i)$.
+        Let $X_i=\left\{ x\in X\mid x\times Y\subset Z_i \right\}$
         for $i=1,2$. The irreducibility of $Y$ guarantees that $X_1\cup X_2=X$: if there were
         an $x$ for which $x\times Y$ were not contained in a $Z_i$, this would yield a
-        covering of $Y$ by closed sets $Z_1\cap Y$ and $Z_2\cap Y$. Now consider the inclusion
-        map $\iota:X\to X\times Y$; if $\iota$ is continuous then $X_i$ must be closed, as
-        $\iota^{-1}(Z_i)=X_i$. But the inclusion is obviously continuous, as any closed set
-        in $X\times Y$ is defined by the vanishing of polynomials $f_\alpha(x_1,\ldots,x_n,y_1,\ldots, y_m)$,
-        whose pullback to $X$ is $f_\alpha(x_1,\ldots,x_n,0,\ldots,0)$\todo{fix}, which is by definition
-        a closed set of $X$. But if $X_i$ are closed and cover $X$, either $X_1=X$ or $X_2=X$
-        and thus $Z_1=X\times Y$ or $Z_2=X\times Y$, i.e. $X\times Y$ is irreducible.
+        covering of $Y$ by closed sets $Z_1\cap Y$ and $Z_2\cap Y$.
+        Next note that the $X_i$ are closed; in particular, $X_i=Z(I_i')$ where
+        \[I_i'=\left\{ f(x,y')\in\C[x_1,\ldots,x_n\mid f\in I_i, y'\in Y \right\}.\]
+        This is because
+        \begin{align*}
+            x\in Z(I_i')&\iff f(x,y')=0, \forall f\in I_i, y'\in Y\\
+            &\iff (x,y')\in Z(I_i), \forall y'\in Y\\
+            &\iff \{x\}\times Y\subset Z(I_i)\\
+            &\iff x\in X_i.
+        \end{align*}
+        But if $X_i$ are closed and cover $X$, either $X_1=X$ or $X_2=X$
+        and thus $Z_1=X\times Y$ or $Z_2=X\times Y$, i.e. $X\times Y$ is irreducible\footnote{This argument is due to Sicong Zhang}.
     \item Consider the homomorphism $\psi:A(X)\otimes_kA(Y)\to A(X\times Y)$ given by taking $(f\otimes g)(x,y)$
         to $f(x)g(y)$. This map is clearly onto, as it produces the coordinate functions
         $x_1,\ldots,x_n,y_1,\cdots,y_m$.\footnote{One might worry that generators may be missing from
@@ -222,7 +228,27 @@ For those more versed in category theory, there is a simpler but more indirect p
 \end{enumerate}
 
 \subsection*{Problem I.3.20}
-\todo{finish}
+\begin{enumerate}[(a)]
+    \item Fix an affine open $U$ containing $P$. Then $\mathcal{O}(U)_{\fr m_P}\cong \mathcal{O}(Y)_{\fr m_P}$
+        is a normal Noetherian local ring, and by the Stacks Project Tag 031T, we can write
+        \[ \mathcal{O}(U)_{\fr m_P}=\bigcap_{\textrm{ht}(\fr p)=1}(\mathcal{O}(U)_{\fr m_P})_{\fr p}=\bigcap_{\substack{\textrm{ht}(\fr p')=1\\\fr p'\subset \fr m_P}}\mathcal{O}(U)_{\fr p'}.\]
+        Note that we have replaced $\fr p\mathcal{O}(U)_{\fr m_P}$ by $\fr p'$ because primes in
+        $\mathcal{O}(U)_{\fr m_P}$ are in one-to-one correspondence with primes of $\mathcal{O}(U)$
+        containing $\fr m_P$. Moreover, $\fr m_P$ is maximal and hence
+        has the same dimension as $\mathcal{O}(U)$, which implies that this correspondence is
+        height-preserving, allowing us to write the intersection as above. Now note that the height 1
+        primes of $\mathcal{O}(U)$ are in one-to-one correspondence with the codimension 1
+        subvarieties of $U$ containing $P$ (c.f. Hartshorne I.3.13). The given function $f$
+        is regular on $U-P$, and hence given any point $Q\neq P$ on a subvariety $\fr q$ (passing
+        through $P$), we can find
+        an open set $V$ of the subvariety on which $f$ can be expressed as a fraction $g/h$ with
+        $g,h\in \mathcal{O}(U)$. Note, however, that $h\notin\fr q$, as otherwise $h$ would
+        vanish identically on the subvariety. This contradicts that $f$ is regular on $V$
+        and hence $f\in\mathcal{O}(U)_{\fr q}$, and by the equation above, $f\in\mathcal{O}(U)_{\fr m_P}$.
+        \todo{check this}
+    \item
+\end{enumerate}
+
 \subsection*{Problem I.3.21}
 \begin{enumerate}[(a)]
     \item It suffices to show that the addition and inversion maps are morphisms of varieties.
