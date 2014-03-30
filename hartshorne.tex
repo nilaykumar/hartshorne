@@ -441,11 +441,34 @@ neighborhood of $(0,0) \in Y$.
 
 \subsection*{Problem 1.5.3}
 \begin{enumerate}[(a)]
-\item Using the definition of singular points in terms of the matrix of partial derivatives of $f$, and the fact that $P = (0,0)$,
-	we see that $Df|_P \neq 0 \Leftrightarrow f$ contains linear terms $\Leftrightarrow f_1 \neq 0$.
-\item For the node, the multiplicity is 2, and the tangent directions are $x=0$ and $y=0$. For the triple point, the multiplicity
-	is 3, and the tangent directions are $x=0, y=0, x+y = 0$. For the cusp, there is only one tangent direction, $y=0$,
-	with multiplicity 2. For the tacnode, there is one tangent direction, $x=0$, with multiplicity 2.
+\item Using the definition of singular points in terms of the matrix of partial derivatives of $f$, and the 
+	fact that $P = (0,0)$, we see that $Df|_P \neq 0 \Leftrightarrow f$ contains linear terms $\Leftrightarrow 
+	f_1 \neq 0$.
+\item For the node, the multiplicity is 2, and the tangent directions are $x=0$ and $y=0$. For the triple point, 
+	the multiplicity is 3, and the tangent directions are $x=0, y=0, x+y = 0$. For the cusp, there is only one 
+	tangent direction, $y=0$, with multiplicity 2. For the tacnode, there is one tangent direction, $x=0$, with 
+	multiplicity 2.
+\end{enumerate}
+
+
+\subsection*{Problem 1.5.7}
+\begin{enumerate}[(a)]
+\item
+\item When one of the curves is a line, the polynomial $g$ is linear, $g = ax - by$. Either $a\neq 0$ or $b\neq 0$; we
+	assume WLOG that $a\neq 0$. Then in the quotient $\mathcal{O}_P / (f,g)$ we can solve for $x$: $x = by/a $.
+	Substituting this expression for $x$ in $f$ produces a polynomial $f(by/a, y) = h(y)$. The ring we are left with is:
+	\[	\left(k[x,y]/(f,g)\right)_{(x,y)} = \left(k[y]/(h)\right)_{(y)}	\]
+	Note that, unless $ax-by$ is one of the tangent directions at $P$, the lowest degree term in $h$ will be $y^r$,
+	where $r = \mu_P(Y)$. Then we can write:
+	\[      h(y) = y^r( c_r + \dots + c_d y^{d-r})       \]
+	The factor in parantheses is a unit in $\mathcal{O}_P$, which shows that:
+	\[       \left(k[y]/(h)\right)_{(y)} =   \left(k[y]/(y^r)\right)_{(y)}     \]
+	Therefore \todo{finish this argument}
+\item We use again the fact that
+	\[        k[x,y]/(f,g) = \bigoplus_{P \in V(f,g)} \mathcal{O}_P /(f,g)      \]
+	This shows $\dim_k k[x,y]/(f,g) = \sum (L \cdot Y)_P = (L \cdot Y)$ Using the same argument as in the 
+	previous part, $k[x,y]/(f,g) = k[y]/(h)$, where $h(y) = f(by/a, y)$ is a degree $d$ polynomial in $y$. Then
+	$\dim_k k[x,y]/(f,g) = d$, as desired.
 \end{enumerate}
 
 \end{document}
