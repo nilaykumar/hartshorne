@@ -511,6 +511,42 @@ neighborhood of $(0,0) \in Y$.
 	$\dim_k k[x,y]/(f,g) = d$, as desired.
 \end{enumerate}
 
+\subsection*{Problem I.5.10}
+\begin{enumerate}[(a)]
+\item
+\item We can assume $X$ and $Y$ are affine, by replacing them with affine opens that contain $P$ and $\phi(P)$ if 
+	needed; the local rings $\mathcal{O}_P$ and $\mathcal{O}_{\phi(P)}$ remain unchanged. Therefore a 
+	morphism $\phi : X \to Y$ induces a ring homomorphism:
+	\[	\phi^* : A(Y) \to A(X)	\]
+	Upon restricting this to the maximal ideal $\fr m_{\phi(P)}$, the image is contained in $\fr m_{P}$, since:
+	\[	f \in \fr m_{\phi(P)} \Leftrightarrow f(\phi(P)) = 0 \Leftrightarrow (\phi^* f)(P) = 0 \Leftrightarrow
+	\phi^*f \in \fr m_P	\]
+	Similarly, the restriction of $\phi^*$ to $\fr m_{\phi(P)}^2$ maps to $\fr m_{P}^2$:
+	\begin{align*}
+	f \in \fr m_{\phi(P)}^2 &\Leftrightarrow f = gh, \text{ where } g,h\in \fr m_{\phi(P)} \\
+	&\Leftrightarrow \phi^* f = (\phi^* g) (\phi^* h),  \text{ where } \phi^* g, \phi^* h \in \fr m_P \\
+	&\Leftrightarrow \phi^* f \in \fr m_P^2
+	\end{align*}
+	Then there is a well-defined map on the quotients:
+	\begin{align*}
+	\psi : \fr m_{\phi(P)}/ \fr m_{\phi(P)}^2 &\to \fr m_{P}/ \fr m_{P}^2 \\
+	f \fr m_{\phi(P)}^2 &\mapsto (\phi^* f) \fr m_{P}^2
+	\end{align*}
+	$\psi$ is actually a linear map of vector spaces. This property is inherited from the homomorphism $\phi$, which
+	satisfies $\phi(a f + bg) = a \phi(f) + b \phi(g)$, for $f,g \in A(Y)$ and $a,b \in k$. Now we can simply define
+	$T_P(\phi)$ to be the dual map to $\psi$:
+	\[	T_P(\phi) : (\fr m_{P}/ \fr m_{P}^2)^* = T_P (X) \to (\fr m_{\phi(P)}/ \fr m_{\phi(P)}^2)^* = 
+	T_{\phi(P)}( Y)	\]
+\item In this case the morphism is $\phi (x,y) = (x,0)$. The coordinate rings are:
+	\[	A(X) = k[x,y] / (x-y^2) = k[y] \Rightarrow \fr m_{(0,0)} / \fr m_{(0,0)}^2 = k \cdot y	\]
+	\[	A(Y) = k[x,y] / (y) = k[x] \Rightarrow \fr m_{\phi(0,0)} / \fr m_{\phi(0,0)}^2 = k \cdot x	\]
+	The map $\psi$ defined in the previous part gives:
+	\[	\psi(x) = (x\circ \phi) \text{ mod } (y^2) = x \text{ mod } (y^2) = 0	\]
+	The second equality happens because $\phi$ leaves the $x$ coordinate unchanged. The last equality follows
+	from $x - y^2 = 0$ in $A(X)$. Since $x$ generates $\fr m_{\phi(0,0)} / \fr m_{\phi(0,0)}^2$, $\psi = 0$ identically.
+	The dual map of the zero map is itself the zero map, so $T_{(0,0)} (\phi) = 0$.
+\end{enumerate}
+
 \end{document}
 
 
