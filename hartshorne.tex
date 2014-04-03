@@ -555,6 +555,80 @@ neighborhood of $(0,0) \in Y$.
 \end{enumerate}
 
 
+\subsection*{Problem I.6.1}
+\begin{enumerate}[(a)]
+\item Let $K = K(Y)$. Using proposition 6.7, $Y$ is isomorphic to an abstract nonsingular curve, i.e. an open subset $U$ of
+	$C_K$. We want to show that $U$ is a proper subset of $C_K$. Theorem 6.9 shows that $C_K$ is isomorphic to a 
+	nonsingular projective curve with field of functions $K$. By corollary 6.12, this curve is unique up to isomorphism, so
+	$C_K \cong \Proj^1$. But $Y \not \cong \Proj^1$, so $U$ is not all of $C_K$. Let $P \in C_K - U$, then $C_K - \{P\}
+	\cong \A^1$, using the identification of $C_K$ with $\Proj^1$. We have:
+	\[	Y \cong U \subset C_K - \{P\} \cong \A^1	\]
+	
+\end{enumerate}
+
+
+\subsection*{Problem I.6.2}
+\begin{enumerate}[(a)]
+\item Let $f(x,y) = y^2 - x^3 + x$; the ideal of $Y$ is $(f)$. We show below that the rank of $Df$ is 1 at every point
+	of $Y$:
+	\[	Df = ( \begin{array} {cc} -3x^2 + 1 & 2y \end{array} )	\]
+	\[	Df = 0 \Leftrightarrow \left\{ \begin{array}{c} 3x^2 = 1 \\ y = 0 \end{array}\right.	\]
+	This has solutions $(1/\sqrt{3} , 0)$ and $(-1/\sqrt{3}, 0)$, neither of which belongs to $Y$. Therefore $Y$ is
+	nonsingular. By theorem 5.1, the local rings $A_{\fr m_P}$ are regular for each $P \in Y$. Since $A$ has
+	dimension 1, so do its localizations at maximal ideals $A_{\fr m_P}$. Then we can apply theorem 6.2, which shows
+	that $A_{\fr m_P}$ is integrally closed for all $P\in Y$. But $\fr m_P$ are all the maximal ideals of $A$, because
+	maximal ideals are in bijective correspondence with points of $Y$. We have shown, then, that the localizations of $A$
+	at all maximal ideals are integrally closed, and therefore $A$ is integrally closed.
+\item There is no relation in $A$ between powers of $x$, so $k[x]$ is a free algebra over $k$ with one generator, i.e. a
+	polynomial ring. \todo{Is there more to say about this?} Now consider the element $y \in K$; it is integral over $k[x]$
+	because it satisfies the monic polynomial equation $y^2 - x^3 + x = 0$. $k[x]$ and $y$ generate all of $A$, so $A$ is
+	contained in the integral closure of $k[x]$. However, $A$ is integrally closed in its field of fractions $K$, so the integral
+	closure of $k[x] \subset A$ must be contained in $A$. Putting these two results together shows that the integral closure
+	is exactly $A$.
+\item We define $\sigma_0$ on the generators $x, y$ of $k[x,y]$:
+	\begin{align*}	\sigma_0 (x) &= x \\ \sigma_0(y) &=-y	\end{align*}
+	And thus homomorphism properties determine $\sigma_0$ uniquely on all of $k[x,y]$. To show that $\sigma_0$ descends
+	to an automorphism $\sigma$ of the quotient $A = k[x,y] / (f)$, we check that it maps the ideal $(f)$ to itself:
+	\begin{align*}	
+	\sigma_0(f) &= \sigma_0(y)^2 - \sigma_0(x)^3 + \sigma_0(x) \\
+	&= (-y)^2 - x^3 + x \\
+	&= f 
+	\end{align*}
+	We define the norm of $a\in A$ by $N(a) = a \cdot \sigma(a)$. We have $N(x) = x \cdot x = x^2 \in k[x]$, and $N(y) =
+	y \cdot (-y) = -x^3 + x \in k[x]$. Every $a \in A$ can be written as $f(x) + y g(x)$; then we compute its norm by:
+	\begin{align*}
+	N(a) &= a \cdot \sigma(a) \\
+	&= \big(f(x) + y g(x)\big)\big(f(x) - y g(x)\big) \\
+	&= f^2(x) + y^2 g^2(x) \\
+	&= f^2(x) + (x^3 - x) g^2(x)
+	\end{align*}
+	Which shows that $N(a) \in k[x]$. If $a = 1$, then $f(x) = 1, g(x) = 0$, which gives $N(1) = 1$. Finally, we show that 
+	the norm is multiplicative:
+	\begin{align*}
+	N(ab) &= a b \cdot \sigma (ab) \\
+	&= \big(a\sigma(a)\big)\big(b\sigma(b)\big) \\
+	&= N(a) N(b)
+	\end{align*}
+\item We search for units, i.e. elements $a,b$ such that $ab = 1$. Using the multiplicative property of the norm:
+	\[	1= N(1) = N(ab) = N(a) N(b)	\]
+	$N(a)$ and $N(b)$ are therefore units in $k[x]$, which shows $N(a), N(b) \in k$. This can only happen if $a,b \in k$, so
+	the only units in $A$ are the elements of $k$. Next, we claim that there is no $a \in A$ such that $N(a)$ is a linear 
+	polynomial in $x$. To see this, we use the result from the previous part:
+	\[	N(a) = f^2(x) + (x^3 - x) g^2(x)	\] 
+	And it's clear that this is not linear in $x$ for any polynomials $f,g$. Using this fact, we can show that $x$ and $y$ are
+	irreducible. Consider $a,b \in A$ such that $ab = x$. Then $N(a) N(b) = N(x) = x^2$. $k[x]$ is a UFD, so either $N(a) 
+	= N(b) = x$, or one of $a,b$ is a unit. The first case is ruled out since $x$ is linear, therefore $x$ is irreducible. Similarly,
+	let $a,b \in A$ such that $ab = y$. Then $N(a) N(b) = N(y) = - x^3 + x = x(1-x)(1+x)$. Unless one of $a,b$ is a unit, either
+	$N(a)$ or $N(b)$ is linear in $x$, which is impossible. Therefore $y$ is irreducible. This shows how we can factor $y^2 
+	\in A$ into irreducibles in two distinct ways: $y^2 = y \cdot y = x(x-1)(x+1)$. Hence $A$ is not a UFD.
+\item $Y$ is an affine variety, so the result of problem 3.1(e) shows that $Y$ is not isomorphic to $\Proj^1$. Recall also that in
+	part (a) of this problem we proved that $Y$ is nonsingular. Then problem 6.1(c) shows that $Y$ rational would imply that
+	$A = A(Y)$ is a UFD. We showed in part (d) of this problem that this is not the case, so $Y$ is not rational.
+\end{enumerate}
+	
+	
+
+
 
 \end{document}
 
