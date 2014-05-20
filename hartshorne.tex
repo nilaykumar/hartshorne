@@ -559,10 +559,11 @@ neighborhood of $(0,0) \in Y$.
 \begin{enumerate}[(a)]
 \item Let $K = K(Y)$. Using proposition 6.7, $Y$ is isomorphic to an abstract nonsingular curve, i.e. an open subset $U$ of
 	$C_K$. We want to show that $U$ is a proper subset of $C_K$. Theorem 6.9 shows that $C_K$ is isomorphic to a 
-	nonsingular projective curve with field of functions $K$. By corollary 6.12, this curve is unique up to isomorphism, so
-	$C_K \cong \Proj^1$. But $Y \not \cong \Proj^1$, so $U$ is not all of $C_K$. Let $P \in C_K - U$, then $C_K - \{P\}
-	\cong \A^1$, using the identification of $C_K$ with $\Proj^1$. We have:
-	\[	Y \cong U \subset C_K - \{P\} \cong \A^1	\]
+	nonsingular projective curve with function field $K$. By corollary 6.12, this curve is unique up to isomorphism, so
+	$C_K \cong \Proj^1$. But $Y \not \cong \Proj^1$, so $U$ must be a proper subset of $C_K$. Let $P \in C_K - U$, then $C_K - \{P\}
+	\cong \A^1$, using the identification of $C_K$ with $\Proj^1$. Hence we find that
+	\[	Y \cong U \subset C_K - \{P\} \cong \A^1.	\]
+\item 
 	
 \end{enumerate}
 
@@ -625,31 +626,87 @@ neighborhood of $(0,0) \in Y$.
 	part (a) of this problem we proved that $Y$ is nonsingular. Then problem 6.1(c) shows that $Y$ rational would imply that
 	$A = A(Y)$ is a UFD. We showed in part (d) of this problem that this is not the case, so $Y$ is not rational.
 \end{enumerate}
-	
-	
+
+\subsection*{Problem I.7.1}
+
+\subsection*{Problem I.7.4}
+
+\subsection*{Problem I.7.6}
+
+\subsection*{Problem II.1.1}
+It suffices to show that the sheaf associated to the constant presheaf $\mathcal{C}$ and the constant sheaf $\mathcal{A}$
+are isomorphic as sheaves. Note that $\mathcal{C}$ has stalks at every point equal to $A$ and so $\mathcal{C}^+$ is the sheaf
+whose sections $\Gamma(U,\mathcal{C}^+)$ are functions $s:U\to A$ satisfying property (2) of Proposition-Definition 1.2:
+for each $P\in U$, there is a neighborhood $V$ of $P$, contained in $U$, and an element $t\in\mathcal{C}(V)$ such that for
+all $Q\in V$, the germ $t_Q$ of $t$ at $Q$ is equal to $s(Q)$. In the case of the constant presheaf, $\mathcal{C}(V)=A$ and
+$t_Q=t$.
+
+Fix a function $f\in\Gamma(U,\mathcal{A})$. We wish to send it to a function in $\Gamma(U,\mathcal{C}^+)$. But $f$ satisfies
+property (2): for any $P\in U$, we can find a neighborhood $V\ni P$ such that $f$ is constant on $V$ and hence choose
+$t\in\mathcal{C}(V)$ to be $f(P)$. Thus we define a morphism of sheaves $\phi:\mathcal{A}\to\mathcal{C}^+$ that takes every
+function to itself. But clearly $\phi$ has an inverse that takes any $s\in\Gamma(U,\mathcal{C}^+)$ to itself in
+$\Gamma(U,\mathcal{A})$ -- $s$ is continuous because property (2) forces $s$ to be locally constant map into a discrete
+space. As $\phi$ clearly commutes with restriction maps, it is an isomorphism of sheaves.
 
 
+\subsection*{Problem II.1.2}
+\begin{enumerate}[(a)]
+    \item We first show that for a morphism $\phi:\mathcal{F}\to\mathcal{G}$, $(\ker\phi)_P=\ker\phi_P$.
+        Given a germ $(U,f)\in(\ker\phi)_P$, the induced map on stalks takes $(U,f)\mapsto (U,\phi(U)(f))=(U,0)$
+        and hence $(\ker\phi)_P\subset\ker\phi_P$. Next consider $(U,f)\in\ker\phi_P$, i.e. $\phi_P(U,f)\sim0$.
+        Then there must exist some $V\subset U$ such that $\phi(U)(f)|_V=0$, which implies that $\phi(V)(f|_V)=0$.
+        Then $f|_V\in(\ker\phi)(V)$ and so the $(V,f|_V)\in(\ker\phi)_P$. But clearly $(V,f|_V)\sim(U,f)$, so
+        $(U,f)\in(\ker\phi)_P$ and $\ker\phi_P\subset(\ker\phi)_P$.
+        
+        Next we show that $(\im\phi)_P=\im\phi_P$, where $\im\phi$ is the sheaf associated to the image presheaf
+        $\phi(\mathcal{F})$. As $\phi(\mathcal{F})_P\cong(\im\phi)_P$, any germ in $(\im\phi)_P$ can be written
+        as $(U,g)$ such that there exists an $f\in\mathcal{F}(U)$ satsifying $\phi(U)(f)=g$. Consider the germ
+        $(U,f)\in\mathcal{F}_P$. It is sent by $\phi_P$ to $(U,\phi(U)(f))=(U,g)$, and hence is contained in $\im\phi_P$.
+        Next consider a germ $(U,g)\in\im\phi_P$. By construction, there exists a germ $(U,f)$ such that $\phi_P(U,f)=(U,g)$,
+        for $f\in\mathcal{F}(U)$. As $\phi_P(U,f)=(U,\phi(U)(f))$, we find that $\phi(U)(f)=g$ and hence $(U,f)\in(\im\phi)_P$
+        and $\im\phi_P\subset(\im \phi)_P$.
+    \item From above, $(\ker\phi)_P=\ker\phi_P$ and so if $\phi$ is injective ($\ker\phi=0$) then $\phi_P$ must be injective
+        as well. Conversely, if $\phi_P$ is injective, we find that $(\ker\phi)_P=0$ for all $P$. But this means that
+        given any section $s\in\ker\phi(U)$ in an open $U$, there exist neighborhoods of any point $P$ in $U$ on which
+        $s$ is identically zero. As these neighborhoods cover $U$, the first sheaf axiom forces $s=0$. Hence $\ker\phi(U)=0$
+        for every neighborhood $U$, and thus $\phi$ is injective.
+
+        Again from above, $(\im\phi)_P=\im\phi_P$ and so if $\phi$ is surjective then $\im\phi_P=\mathcal{G}_p$ 
+        so $\phi_P$ is surjective. Conversely, if $\phi_P$ is surjective then $(\im\phi)_P=\mathcal{G}_P$, which
+        by Proposition 1.1 implies that $\im\phi=\mathcal{G}$. Hence $\phi$ is surjective.
+    \item Consider the following sequence of sheaves and morphisms:
+        \begin{equation*}
+            \begin{tikzcd}
+                \cdots\ar{r} & \mathcal{F}^{i-1}\ar{r}{\phi^{i-1}} & \mathcal{F}^i\ar{r}{\phi^i} & \mathcal{F}^{i+1}\ar{r} & \cdots
+            \end{tikzcd}
+        \end{equation*}
+        We wish to show that this sequence is exact if and only if for each $P\in X$ the corresponding sequence of stalks,
+        \begin{equation*}
+            \begin{tikzcd}
+                \cdots\ar{r} & \mathcal{F}^{i-1}_P\ar{r}{\phi^{i-1}_P} & \mathcal{F}_P^i\ar{r}{\phi^i_P} & \mathcal{F}^{i+1}_P\ar{r} & \cdots,
+            \end{tikzcd}
+        \end{equation*}
+        is exact. The sequence of sheaves is exact if and only if, in the following diagram, the diagonals are exact:
+        \begin{equation*}
+            \begin{tikzcd}
+                \;&&0\ar{rd}&&0&&0\ar{rd}&&0\\
+                \;&&&\mathcal{L}^i\ar{rd}\ar{ru}&&&&\mathcal{L}^{i+2}\ar{ru}\ar{rd}\\
+                \cdots\ar{rd}\ar{rr} && \mathcal{F}^{i-1}\ar{rr}{\phi^{i-1}}\ar{ru} && \mathcal{F}^i\ar{rr}{\phi^i}\ar{rd} && \mathcal{F}^{i+1}\ar{rr}\ar{ru} && \cdots\\
+                \;&\mathcal{L}^{i-1}\ar{ru}\ar{rd}&&&&\mathcal{L}^{i+1}\ar{ru}\ar{rd}\\
+                0\ar{ru}&&0&&0\ar{ru}&&0
+            \end{tikzcd}
+        \end{equation*}
+        where $\mathcal{L}^i=\im\phi^{i-1}=\ker\phi^i$. Passing to the stalks, we find that the sequences
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & \mathcal{L}^{i}_P\ar{r}{\alpha_P} & \mathcal{F}_P^i\ar{r}{\beta_P} & \mathcal{L}^{i+1}_P\ar{r} & 0
+            \end{tikzcd}
+        \end{equation*}
+        are exact at $\mathcal{L}^i_P$ and $\mathcal{L}^{i+1}_P$ by (b). Exactness at $\mathcal{F}_P^i$ follows similarly:
+        $\ker\beta=\im\alpha$ implies that $(\ker\beta)_P=(\im\alpha)_P$, which reduces via (a) to $\ker\beta_P=\im\alpha_P$.
+        Redrawing the last diagram with stalks instead of sheaves thus yields a diagram which is exact along the diagonals,
+        which happens if and only if the original, horizontal, sequence of stalks is exact.
+\end{enumerate}
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
