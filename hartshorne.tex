@@ -704,9 +704,40 @@ space. As $\phi$ clearly commutes with restriction maps, it is an isomorphism of
         \end{equation*}
         are exact at $\mathcal{L}^i_P$ and $\mathcal{L}^{i+1}_P$ by (b). Exactness at $\mathcal{F}_P^i$ follows similarly:
         $\ker\beta=\im\alpha$ implies that $(\ker\beta)_P=(\im\alpha)_P$, which reduces via (a) to $\ker\beta_P=\im\alpha_P$.
-        Redrawing the last diagram with stalks instead of sheaves thus yields a diagram which is exact along the diagonals,
+        Redrawing the last diagram with stalks instead of sheaves thus yields a diagram that is exact along the diagonals,
         which happens if and only if the original, horizontal, sequence of stalks is exact.
 \end{enumerate}
+
+\subsection*{Problem II.1.3}
+\begin{enumerate}[(a)]
+    \item The morphism of sheaves $\phi$ is surjective if and only if the induced map on stalks $\phi_P$ is surjective for every $P$.
+        Suppose the given condition holds. Fix a germ $(U,g)\in\mathcal{G}_P$. The section $g\in\mathcal{G}(U)$ restricts
+        to $g|_{U_i}$ subordinate to the given open cover $\{U_i\}$. Take any $U_j$ containing $P$; we can find an $f\in\mathcal{F}(U_j)$
+        such that $\phi(f)=g|_{U_j}$. Hence $\phi_P(U_j,f)=(U_j,g|_{U_j})\sim(U,g)$. We conclude that $\phi_P$ is surjective.
+        Conversely, suppose $\phi_P$ is surjective for every $P$ and fix a section $s\in\mathcal{G}(U)$. Consider the germs
+        of $s$ at every point $P$ in $U$ written as $(U_i,s|_{U_i})$ for some $U_i$. Surjectivity on stalks yields germs
+        $(U_i,t_i)$ in each $\mathcal{F}_P$ satisfying the required condition.
+    \item 
+\end{enumerate}
+
+\subsection*{Problem II.1.13}
+Let $\mathcal{F}$ be a presheaf over $X$. Recall that the associated sheaf, $\mathcal{F}^+$, has sections over an open $U$
+functions $f:U\to\cup_{P\in U}\mathcal{F}_P$ satisfying the following properties:
+\begin{enumerate}
+    \item $f(P)\in\mathcal{F}_P$;
+    \item for each $P\in U$ there exists a neighborhood $V$ of $P$ contained in $U$ and an element
+        $t\in\mathcal{F}(V)$ such that for all $Q\in V$, the germ $t_Q$ of $t$ at $Q$ is equal to $f(Q)$.
+\end{enumerate}
+The first condition shows that $f$ is a section of the projection $\pi:\text{Sp\'e}(\mathcal{F})\to U$. The topology
+of the espace \'etal\'e is such that any basic open is the set of germs $\{s_P\}\subset\text{Sp\'e}(\mathcal{F})$ of some $s\in\mathcal{F}(U)$
+and for all $P$. The second condition shows that the image of $f$ is, at least locally, precisely such an open.
+The preimage by $f$ of any open in Sp\'e$(\mathcal{F})$ is then a union of open neighborhoods $V$ as described by condition 2,
+and hence $f$ is in fact a continuous section of $\pi$. In fact, for this reason, any continuous section of $\pi$ 
+over $U$ yields a section of $\mathcal{F}^+(U)$.
+
+
+\subsection*{Problem II.1.14}
+
 
 \end{document}
 
