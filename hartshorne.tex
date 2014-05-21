@@ -3,7 +3,7 @@
 \usepackage{tikz-cd}
 \usepackage{todonotes}
 
-\title{Selected Solutions to Hartshorne's \textit{Algebraic Geometry}\footnote{Written for a reading course with Professor A.~J. de Jong at Columbia during the spring semester of 2014.}}
+\title{Selected Solutions to Hartshorne's \textit{Algebraic Geometry}\footnote{Solutions to the first chapter were written for a reading course with Professor A.~J. de Jong at Columbia during the spring semester of 2014.}}
 \author{Matei Ionita and Nilay Kumar}
 \date{Last updated: \today}
 
@@ -11,6 +11,8 @@
 \begin{document}
 
 \maketitle
+
+\section*{CHAPTER I: Varieties}
 
 \subsection*{Problem I.1.1}
 \begin{enumerate}[(a)]
@@ -633,6 +635,10 @@ neighborhood of $(0,0) \in Y$.
 
 \subsection*{Problem I.7.6}
 
+\newpage
+\section*{CHAPTER II: Schemes}
+
+
 \subsection*{Problem II.1.1}
 It suffices to show that the sheaf associated to the constant presheaf $\mathcal{C}$ and the constant sheaf $\mathcal{A}$
 are isomorphic as sheaves. Note that $\mathcal{C}$ has stalks at every point equal to $A$ and so $\mathcal{C}^+$ is the sheaf
@@ -717,8 +723,48 @@ space. As $\phi$ clearly commutes with restriction maps, it is an isomorphism of
         Conversely, suppose $\phi_P$ is surjective for every $P$ and fix a section $s\in\mathcal{G}(U)$. Consider the germs
         of $s$ at every point $P$ in $U$ written as $(U_i,s|_{U_i})$ for some $U_i$. Surjectivity on stalks yields germs
         $(U_i,t_i)$ in each $\mathcal{F}_P$ satisfying the required condition.
-    \item 
+    \item Let $X=\C$ as a complex manifold. Consider the exponential sequence,
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & \Z_\C\ar{r} & \mathcal{O}_\C\ar{r}{\exp} & \mathcal{O}_\C^\times\ar{r} & 0,
+            \end{tikzcd}
+        \end{equation*}
+        where $\Z_\C$ is the constant sheaf, $\mathcal{O}_\C$ is the sheaf of holomorphic functions, $\mathcal{O}_\C^\times$
+        is the sheaf of non-vanishing holomorphic functions, and the exponential is given over any open by $f\mapsto \exp(2\pi i f)$.
+        The map induced by the exponential is surjective on stalks, as one can always locally take a logarithm.
+        Globally, however, if one chooses $U=\C$, the map on sections $\mathcal{O}_\C(\C)\to\mathcal{O}_\C^\times(\C)$ is not surjective,
+        as there is no global logarithm.\todo{understand this better}
 \end{enumerate}
+
+\subsection*{Problem II.1.8}
+Consider the image of the exact sequence of sheaves
+\begin{equation*}
+    \begin{tikzcd}
+        0\ar{r} & \mathcal{F}'\ar{r}{\alpha} & \mathcal{F}\ar{r}{\beta} & \mathcal{F}'',
+    \end{tikzcd}
+\end{equation*}
+under the image of the functor $\Gamma(U,\cdot)$, for an open $U$,
+\begin{equation*}
+    \begin{tikzcd}
+        0\ar{r} & \Gamma(U,\mathcal{F}')\ar{r}{\alpha(U)} & \Gamma(U,\mathcal{F})\ar{r}{\beta(U)} & \Gamma(U,\mathcal{F}'').
+    \end{tikzcd}
+\end{equation*}
+This sequence is exact at $\Gamma(U,\mathcal{F}')$, because exactness at $\mathcal{F}'$ implies that $(\ker\alpha)(U)\equiv\ker\alpha(U)=0$.
+Exactness at $\mathcal{F}$ implies that $\ker\beta=\im\alpha$ 
+We claim that the image presheaf $\im\alpha$ is in this case a sheaf, and hence $(\ker\beta)(U)=(\im\alpha)(U)$,
+which becomes $\ker\beta(U)=\im\alpha(U)$.  \todo{is this even correct?}
+To see this, note first that the image presheaf satisfies the first sheaf axiom by virtue of $\mathcal{F}$ being a sheaf.
+The second sheaf axiom is satisfied as follows: let $\{U_i\}$ be an open cover of $U$ and $t_i\in\Gamma(U_i,\mathcal{\im\alpha})$,
+such that $t_i,t_j$ agree on their overlaps $V_{ij}=U_i\cap U_j$. Then we find
+\begin{align*}
+    t_i|_{V_{ij}} &= t_j|_{V_{ij}}\\
+    \alpha(s_i)|_{V_{ij}} &= \alpha(s_j)_{V_{ij}}\\
+    \alpha(s_i|{V_{ij}}) &= \alpha(s_j|_{V_{ij}}),
+\end{align*}
+which by injectivity of $\alpha(U)$ yields $s_i|_{V_{ij}}=s_j|_{V_{ij}}$. The sheaf property of $\mathcal{F}'$
+gives us an $s\in\Gamma(U,\mathcal{F}')$ that restricts to the $s_i$ appropriately. Using the commutativity
+of restriction maps with $\alpha$, we find that $\alpha(s)\in\Gamma(U,\mathcal{F}')$ restricts to the $t_i$,
+as desired.
 
 \subsection*{Problem II.1.13}
 Let $\mathcal{F}$ be a presheaf over $X$. Recall that the associated sheaf, $\mathcal{F}^+$, has sections over an open $U$
@@ -737,7 +783,61 @@ over $U$ yields a section of $\mathcal{F}^+(U)$.
 
 
 \subsection*{Problem II.1.14}
+It suffices to show that the complement of the support of $s\in\mathcal{F}(U)$ is open, i.e. the
+subset of $U$ given by $\{P\in U \mid s_P=0\}$. This subset, $U\setminus\text{supp }s$, is open if for every point $P$ contained in it,
+there exists an open neighbhorhood of $P$ contained in $U\setminus\text{supp }s$. This is clearly satisfied as there must exist an
+open $V\subset U$ containing $P$ such that $s|_V=0$ (the germ $s_P$ vanishes at $P$), for all $P$.\todo{find a sheaf with non-closed support}
 
+\subsection*{Problem II.1.15}
+%It is clear that $U\mapsto\Hom(\mathcal{F}|_U,\mathcal{G}|_U)$ is a presheaf. 
+%The first sheaf condition
+%certainly holds: if $\{U_i\}$ is an open cover of $U$ and $s|_{U_i}=0$ -- the zero morphism -- then $s$
+%must be the zero morphism.
+
+\subsection*{Problem II.1.16}
+\begin{enumerate}[(a)]
+    \item Let $X$ be an irreducible space, i.e. it cannot be written as the union of two closed, proper subsets.
+        Furthermore, any open $U\subset X$ is irreducible and in particular, connected (c.f. problem I.1.6).
+        Now consider the constant sheaf $\mathcal{A}$ over $X$. The connectedness of every open implies that the sections
+        above any open are simply constant functions $U\to A$. Then for any open subset $V\subset U$,
+        the sections above $V$ are constant functions $V\to A$. There is an obvious surjection
+        $\mathcal{A}(U)\twoheadrightarrow\mathcal{A}(V)$ and hence the constant sheaf is flasque over any
+        irreducible space.
+    \item Let
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & \mathcal{F}'\ar{r}{\alpha} & \mathcal{F}\ar{r}{\beta} & \mathcal{F}''\ar{r} & 0
+            \end{tikzcd}
+        \end{equation*}
+        be an exact sequence of sheaves and let $\mathcal{F}'$ be flasque. Fix any open set $U$.
+        We wish to show that the sequence of abelian groups,
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & \mathcal{F}'(U)\ar{r}{\alpha(U)} & \mathcal{F}(U)\ar{r}{\beta(U)} & \mathcal{F}''(U)\ar{r} & 0
+            \end{tikzcd}
+        \end{equation*}
+        is also exact. Exactness at $\mathcal{F}'(U)$ and $\mathcal{F}(U)$ follow from problem II.1.8, so it suffices
+        to show surjectivity of $\beta(U)$.
+        
+        Fix a $t\in\mathcal{F}''(U)$. Surjectivity of $\beta$ implies surjectivity of $\beta_P$ on stalks, so
+        we can find at least one germ $s_P\in\mathcal{F}_P$ mapping to any $t_P\in\mathcal{F}''_P$. The set of all such germs
+        can be given a partial order on inclusions and hence, by Zorn's lemma, contains a germ with maximal domain,
+        call it $(V,s)$. If $V=U$ we are done. Suppose instead that $V\subsetneq U$. Then we can find an open $V'\subset U$
+        not contained in $V$ together with (via the same argument) a section $r\in\mathcal{F}(V')$ such that $\beta(V')(r)=t|_{V'}$.
+        It is not hard to see that $\beta(V\cap V')(s|_{V\cap V'}-r|_{V\cap V'})=0$. Now, exactness at $\mathcal{F}(V\cap V')$
+        in the sequence
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & \mathcal{F}'(V\cap V')\ar{r}{\alpha(V\cap V')} & \mathcal{F}(V\cap V')\ar{r}{\beta(V\cap V')} & \mathcal{F}''(V\cap V')
+            \end{tikzcd}
+        \end{equation*}
+        implies that there exists a $q\in\mathcal{F}'(V\cap V')$ mapped to $s|_{V\cap V'}-r|_{V\cap V'}$. As
+        $\mathcal{F'}$ is flasque, $q$ extends to a section $q'\in\mathcal{F}'(U)$. If we now define $r'=r-\alpha(V')(q'|_{V'})$,
+        it is clear that $s$ and $r'$ agree on $V\cap V'$, which upon gluing yield a section $s'\in\mathcal{F}(V\cup V')$
+        such that $\beta(V\cup V')(s')=t|_{V\cup V'}$, contradicting the maximality of $V$. Thus $V=U$ and $\beta(U)$ must
+        be surjective.
+    \item
+\end{enumerate}
 
 \end{document}
 
