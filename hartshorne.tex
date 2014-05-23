@@ -733,8 +733,70 @@ space. As $\phi$ clearly commutes with restriction maps, it is an isomorphism of
         is the sheaf of non-vanishing holomorphic functions, and the exponential is given over any open by $f\mapsto \exp(2\pi i f)$.
         The map induced by the exponential is surjective on stalks, as one can always locally take a logarithm.
         Globally, however, if one chooses $U=\C$, the map on sections $\mathcal{O}_\C(\C)\to\mathcal{O}_\C^\times(\C)$ is not surjective,
-        as there is no global logarithm.\todo{understand this better}
+        as there is no global logarithm.
 \end{enumerate}
+
+\subsection*{Problem II.1.4}
+\begin{enumerate}[(a)]
+    \item Let $\phi:\mathcal{F}\to\mathcal{G}$ be a morphism of presheaves that is injective at every open.
+        Then the morphism $\phi_P$ on stalks is clearly injective for each $P$, and as $\mathcal{F}^+$ and $\mathcal{G}^+$
+        have the same stalks as $\mathcal{F}$ and $\mathcal{G}$ respectively, the induced map on sheafifications
+        must be injective by Proposition 1.1.
+    \item Now consider a morphism of sheaves $\psi:\mathcal{F}\to\mathcal{G}$. On the level of presheaves, the natural
+        map $\im\psi\to\mathcal{G}$ is clearly injective for every $U$. By (a), the induced map at the level
+        of sheaves is injective, and hence $\im\psi$ can be thought of as a subsheaf of $\mathcal{G}$.
+\end{enumerate}
+
+\subsection*{Problem II.1.5}
+If $\phi:\mathcal{F}\to\mathcal{G}$ is a sheaf isomorphism, it is clear that it must be both injective and surjective.
+Conversely, let $\phi$ be injective and surjective. The induced map on stalks $\phi_P$ is then also injective and surjective,
+by problem II.1.2 and hence an isomorphism at every point. By Propositon 1.1, $\phi$ is an isomorphism.
+
+\subsection*{Problem II.1.6}
+\begin{enumerate}[(a)]
+    \item Let $\mathcal{F}'$ be a subsheaf of $\mathcal{F}$. Consider the natural map $\mathcal{F}\to\mathcal{F}/\mathcal{F}'$.
+        Recall that $(\mathcal{F}/\mathcal{F}')_P=\mathcal{F}_P/\mathcal{F}'_P$, and hence the induced map on stalks
+        $\mathcal{F}_P\to\mathcal{F}_P/\mathcal{F}'_P$ is surjective with kernel $\mathcal{F}'_P$ (because
+        $\mathcal{F}'_P\hookrightarrow\mathcal{F}_P$), which by problem II.1.2 implies that the map of sheaves is surjective.
+        Thus there is an exact sequence
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & \mathcal{F}'\ar{r} & \mathcal{F}\ar{r} & \mathcal{F}/\mathcal{F}'\ar{r} & 0.
+            \end{tikzcd}
+        \end{equation*}
+    \item Conversely, suppose the sequence
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & \mathcal{F}'\ar{r} & \mathcal{F}\ar{r} & \mathcal{F}''\ar{r} & 0.
+            \end{tikzcd}
+        \end{equation*}
+        is exact. By problem II.1.2, we obtain a similar sequence on stalks. Note that the map
+        $\mathcal{F}'\to\im\left(\mathcal{F}'\to\mathcal{F}\right)$ is a surjection on stalks and thus surjective.
+        The exact sequence also gives us injectivity so the map is an isomorphism. This implies
+        that $\mathcal{F}'$ is isomorphic to a subsheaf of $\mathcal{F}$.
+        Similarly, the induced map $\mathcal{F}_P\to\mathcal{F}''_P$ is surjective with kernel $\mathcal{F}'_P$,
+        and so $\mathcal{F}''_P\cong \mathcal{F}_P/\mathcal{F}'_P$.
+\end{enumerate}
+
+\subsection*{Problem II.1.7}
+Let $\phi:\mathcal{F}\to\mathcal{G}$ be a morphism of sheaves.
+\begin{enumerate}[(a)]
+    \item It is easy to see that we obtain, at the level of stalks, an exact sequence
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & (\ker\phi)_P\ar{r} & \mathcal{F}_P\ar{r} & (\im\phi)_P\ar{r} & 0,
+            \end{tikzcd}
+        \end{equation*}
+        and so $(\im\phi)_P\cong\mathcal{F}_P/(\ker\phi)_P\cong(\mathcal{F}/(\ker\phi))_P$. Applying Proposition 1.1 yields
+        the desired result.
+    \item Precisely the same argument as above in (a), except with the following exact sequence:
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & (\im\phi)_P\ar{r} & \mathcal{G}_P\ar{r} & (\coker\phi)_P\ar{r} & 0.
+            \end{tikzcd}
+        \end{equation*}
+\end{enumerate}
+
 
 \subsection*{Problem II.1.8}
 Consider the image of the exact sequence of sheaves
@@ -752,7 +814,7 @@ under the image of the functor $\Gamma(U,\cdot)$, for an open $U$,
 This sequence is exact at $\Gamma(U,\mathcal{F}')$, because exactness at $\mathcal{F}'$ implies that $(\ker\alpha)(U)\equiv\ker\alpha(U)=0$.
 Exactness at $\mathcal{F}$ implies that $\ker\beta=\im\alpha$ 
 We claim that the image presheaf $\im\alpha$ is in this case a sheaf, and hence $(\ker\beta)(U)=(\im\alpha)(U)$,
-which becomes $\ker\beta(U)=\im\alpha(U)$.  \todo{is this even correct?}
+which becomes $\ker\beta(U)=\im\alpha(U)$.  \todo{simplify this proof via above problems}
 To see this, note first that the image presheaf satisfies the first sheaf axiom by virtue of $\mathcal{F}$ being a sheaf.
 The second sheaf axiom is satisfied as follows: let $\{U_i\}$ be an open cover of $U$ and $t_i\in\Gamma(U_i,\mathcal{\im\alpha})$,
 such that $t_i,t_j$ agree on their overlaps $V_{ij}=U_i\cap U_j$. Then we find
@@ -789,10 +851,7 @@ there exists an open neighbhorhood of $P$ contained in $U\setminus\text{supp }s$
 open $V\subset U$ containing $P$ such that $s|_V=0$ (the germ $s_P$ vanishes at $P$), for all $P$.\todo{find a sheaf with non-closed support}
 
 \subsection*{Problem II.1.15}
-%It is clear that $U\mapsto\Hom(\mathcal{F}|_U,\mathcal{G}|_U)$ is a presheaf. 
-%The first sheaf condition
-%certainly holds: if $\{U_i\}$ is an open cover of $U$ and $s|_{U_i}=0$ -- the zero morphism -- then $s$
-%must be the zero morphism.
+\todo{Think about gluability}
 
 \subsection*{Problem II.1.16}
 \begin{enumerate}[(a)]
@@ -836,8 +895,26 @@ open $V\subset U$ containing $P$ such that $s|_V=0$ (the germ $s_P$ vanishes at 
         it is clear that $s$ and $r'$ agree on $V\cap V'$, which upon gluing yield a section $s'\in\mathcal{F}(V\cup V')$
         such that $\beta(V\cup V')(s')=t|_{V\cup V'}$, contradicting the maximality of $V$. Thus $V=U$ and $\beta(U)$ must
         be surjective.
-    \item
+    \item Fix $V\subset U$ both open and some $s\in\mathcal{F}''(V)$. By (b), the sequence is exact on $V$ and hence 
+        there exists a $t\in\mathcal{F}(V)$ such that the quotient map $q$ sends $q(t)=s$. As $\mathcal{F}$ is flasque,
+        $t$ extends to a section $t'\in\mathcal{F}(U)$, and $q(t')\in\mathcal{F}''(U)$ yields an extension of $s$ to $U$.
+        Thus $\mathcal{F}''$ is flasque.
+    \item Take $s\in(f_*\mathcal{F})(V)$ for some $V\subset U$ both open. By construction, $(f_*\mathcal{F})(V)=\mathcal{F}(f^{-1}V)$
+        and $f^{-1}V\subset f^{-1}U$, so by flasqueness of $\mathcal{F}$, we find an extension of $s$ to $\mathcal{F}(f^{-1}U)=(f_*\mathcal{F})(U)$.
+        Hence the pushforward is flasque.
+    \item That $\mathcal{G}$ is flasque is obvious -- any section can trivially be extended. Furthermore, there is a natural
+        morphism $\mathcal{F}\to\mathcal{G}$ given (over any open) by simply taking the germ of the provided section at every point.
+        This map is in fact injective: if we have two such collections of germs $s_P=t_P$, the second sheaf condition requires that the
+        two associated sections be equal.
 \end{enumerate}
+
+\subsection*{Problem II.1.17}
+Consider the skyscraper sheaf $i_P(A)$ on a topological space $X$. Let us compute the stalks. Take any $Q\in X$ inside the
+closure $\{P\}^-$ of the set containing $P$. Any open $V\ni Q$ must contain $P$: if not, the complement of $V$ in $\{P\}^-$ would
+be a closed set in $\{P\}^-$ containing $P$, contradicting that $\{P\}^-$ is the closure of the set containing $P$. It is
+clear by the construction of $i_P(A)$ that in this case $(i_P(A))_Q=A$. Suppose, on the other hand, that $Q$ lies outside
+of $\{P\}^-$. Then we can find an open set $V\ni Q$ not containing $P$, and thus $(i_P(A))_Q=0$.
+\todo{finish}
 
 \end{document}
 
