@@ -914,7 +914,49 @@ closure $\{P\}^-$ of the set containing $P$. Any open $V\ni Q$ must contain $P$:
 be a closed set in $\{P\}^-$ containing $P$, contradicting that $\{P\}^-$ is the closure of the set containing $P$. It is
 clear by the construction of $i_P(A)$ that in this case $(i_P(A))_Q=A$. Suppose, on the other hand, that $Q$ lies outside
 of $\{P\}^-$. Then we can find an open set $V\ni Q$ not containing $P$, and thus $(i_P(A))_Q=0$.
-\todo{finish}
+Let $i:\{P\}^-\to X$ be the natural inclusion. Then the pushforward by $i$ of the constant sheaf $\mathcal{A}$ on $\{P\}^-$
+is precisely the skyscraper sheaf, as only opens $U$ that contain $P$ will have a non-trivial preimage $i^{-1}U$.
+
+\subsection*{Problem II.1.19}
+Let $X$ be a topological space, let $Z$ be a closed subset, let $i:Z\to X$ be the inclusion, let $U=X-Z$ be the complementary
+open subset, and let $j:U\to X$ be its inclusion.
+\begin{enumerate}[(a)]
+    \item Let $\mathcal{F}$ be a sheaf on $Z$ and consider the direct image $i_*\mathcal{F}$. Let $P\in X$ be a point in $Z$.
+        Then there is an isomorphism $(i_*\mathcal{F})_P\cong\mathcal{F}_P$ constructed as follows. For any germ $(V,f)\in(i_*\mathcal{F})_P$,
+        we see that $f\in (i_*\mathcal{F})(V)=\mathcal{F}(i^{-1}V)$. In the case of $P\in Z$, however, $i^{-1}V$ is simply $V\cap Z$,
+        which is open in $Z$ (via the subspace topology). Thus $f\in\mathcal{F}(V\cap Z)$, and we define a map on stalks $(i_*\mathcal{F})_P\to\mathcal{F}_P$
+        taking $(V,f)\mapsto (V\cap Z,f)$. This map is clearly an isomorphism.
+        
+        On the other hand, if $P$ is outside of $Z$ then any germ at $P$ can be restricted to an open $V$ disjoint from $Z$, whence
+        $i^{-1}V=\varnothing$ and $(i_*\mathcal{F})_P=0$.
+    \item Define a presheaf $j(\mathcal{F})$ given by $V\mapsto\mathcal{F}(V)$ if $V\subset U$ and $V\mapsto 0$ otherwise. Denote
+        by $j_!(\mathcal{F})$ the sheaf associated to $j(\mathcal{F})$. Let $P\in X$ be a point in $U$. Any germ $(V,f)$ in
+        $(j_!(\mathcal{F}))_P=(j(\mathcal{F}))_P$ can be restricted to an open $W\subset V$ with $W\subset U$. This yields
+        a map $(j_!(\mathcal{F}))_P\to\mathcal{F}_P$, which is clearly an isomorphism.
+
+        On the other hand, if $P$ is outside of $U$ then for any germ at $P$, written as $(V,f)$, $V\not\subset U$ and so $(V,f)=0$,
+        whence $j(\mathcal{F})_P=j_!(\mathcal{F})_P=0$.
+
+        We claim that $j_!(\mathcal{F})$ is the only sheaf restricting to $\mathcal{F}$ on $U$ that enjoys these properties.\todo{prove this}
+    \item Let $\mathcal{F}$ be a sheaf on $X$ and $P$ some point in $X$.
+        
+        Consider the sequence of stalks
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & (j_!(\mathcal{F}))_P\ar{r} & \mathcal{F}_P\ar{r} & (i_*\mathcal{F})_P\ar{r} & 0,
+            \end{tikzcd}
+        \end{equation*}
+        for some $P\in X$.\todo{finish}
+
+        This shows that the sequence
+        \begin{equation*}
+            \begin{tikzcd}
+                0\ar{r} & j_!(\mathcal{F})\ar{r} & \mathcal{F}\ar{r} & i_*\mathcal{F}\ar{r} & 0
+            \end{tikzcd}
+        \end{equation*}
+        of sheaves is exact.
+\end{enumerate}
+
 
 \end{document}
 
