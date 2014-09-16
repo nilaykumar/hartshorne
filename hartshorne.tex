@@ -1055,9 +1055,29 @@ Problem II.2.4 yields a bijection
 \[\Hom_\catname{Sch}(X,\Spec\Z)\cong\Hom_\catname{CRng}(\Z,\Gamma(X,\mathcal{O}_X)).\]
 The hom-set on the right is clearly a one point set and thus we find that $\Spec\Z$ is final in $\catname{Sch}$.
 
+\subsection*{Problem II.2.6}
+The spectrum of the zero ring, $\Spec0$, is topologically the empty set. Given any scheme $X$ there is clearly
+a unique morphism $\Spec0\to X$, which on the level of sheaves sends every section to zero.
+
 \subsection*{Problem II.2.7}
+Let $K$ be any field and consider a morphism $f:\Spec K\to X$. The image of $f$ is a point $x\in X$, and
+hence the given map on structure sheaves $f^\#:\mathcal{O}_X\to f_*\mathcal{O}_{\Spec K}$ yields
+ring homomorphisms $\mathcal{O}_X(U)\to K$ if $x\in U$ and $\mathcal{O}_X(U)\to 0$ otherwise. We obtain
+an induced map on stalks $\mathcal{O}_{X,x}\to K$ which, by virtue of $f$ being a morphism of schemes, is
+a local map. In other words, the preimage of $(0)\in K$ is the maximal $\fr m_x\subset\mathcal{O}_{X,x}$.
+This induces a map of fields $\mathcal{O}_{X,x}/\fr m_x=k(x)\hookrightarrow K$.
 
-
+Conversely, suppose we are given a point $x\in X$ and a map of rings $k(x)\hookrightarrow K$. We construct a map of
+topological spaces $f:\Spec K\to X$, which takes $\Spec K$ to $x\in X$. We also construct a map of structure
+sheaves $f^\#:\mathcal{O}_X\to f_*\mathcal{O}_{\Spec K}$: for opens $U\subset X$ not containing $x$,
+$f^\#(U)=0$ as $f^{-1}(U)=\varnothing$, while for opens $U\subset X$ containing $x$, we need maps
+$\mathcal{O}_X(U)\to K$. These maps are constructed using the given map $k(x)\hookrightarrow K$ via the compositions
+\begin{equation*}
+    \begin{tikzcd}
+        \mathcal{O}_X(U)\ar{r} & \mathcal{O}_{X,x}\ar{r} & k(x)\ar[hook]{r} & K.
+    \end{tikzcd}
+\end{equation*}
+This yields a morphism of schemes $(f,f^\#):\Spec K\to X$.
 
 \end{document}
 

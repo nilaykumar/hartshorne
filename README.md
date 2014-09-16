@@ -1,4 +1,9 @@
 hartshorne
 ==========
 
-Solutions to Hartshorne's Algebraic Geometry
+Selected solutions to Hartshorne's Algebraic Geometry.
+
+Contributors:
+
+Matei Ionita
+Nilay Kumar
